@@ -19,7 +19,7 @@
                         "object":"WKITUplink",
                         "method":"OnButton"
                     },
-                    "mouseFocus": true
+                    "keyboardFocus": true
                 }
             },
             "backgroundBrush":{
