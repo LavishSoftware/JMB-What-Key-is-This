@@ -1,0 +1,82 @@
+{
+    "$schema": "http://www.lavishsoft.com/schema/lgui2Package.json",    
+    "elements": [
+        {
+            "type": "window",
+            "name": "whatKeyIsThis.window",
+            "title": "What key is this?",
+            "visibility":"visible",
+            "acceptsKeyboardFocus": true,
+            "inputHooks": {
+                "hook1":{
+                    "control":{
+                        "controlType": "button",
+                        "minValue": 0.0,
+                        "maxValue": 0.0
+                    },
+                    "eventHandler":{
+                        "type":"method",
+                        "object":"WKITUplink",
+                        "method":"OnButton"
+                    },
+                    "mouseFocus": true
+                }
+            },
+            "backgroundBrush":{
+                "color":"#FF003322"
+            },
+            "content":{
+                "type":"stackpanel",
+                "padding":20,
+                "children":[
+                    {
+                        "type":"textblock",
+                        "text":"Click here, then press a key!",
+                        "margin":5
+                    },
+                    {
+                        "type":"border",
+                        "borderBrush":{
+                            "color":"#ffffffff"
+                        },
+                        "borderThickness":2,
+                        "padding":5,
+                        "child":{                            
+                            "type":"textblock",
+                            "textBinding":"WKITUplink.LastButton",
+                            "horizontalAlignment": "center",
+                            "verticalAlignment": "center",
+                            "font":{
+                                "bold":true,
+                                "heightFactor": 1.2
+                            }
+                        }
+                    },
+                    {
+                        "type":"expander",
+                        "margin":5,
+                        "header":"More ...",
+                        "expanded":false,
+                        "content":{
+                            "type":"stackpanel",
+                            "orientation":"vertical",
+                            "children":[                                
+                                {
+                                    "type":"button",
+                                    "content":"Reload What Key is This",
+                                    "margin":[5,5,5,0],
+                                    "eventHandlers":{
+                                        "onPress":{
+                                            "type":"code",
+                                            "code":"JMB.Agent[What Key is This]:Stop:Start"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }        
+                ]
+            }
+        }
+    ]
+}
